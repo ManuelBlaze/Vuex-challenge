@@ -8,4 +8,24 @@ export default createStore({
     prods: productsModule,
     cart: cartModule,
   },
+  state() {
+    return {
+      userLogged: false,
+    };
+  },
+  mutations: {
+    changeStatus(state) {
+      state.userLogged = !state.userLogged;
+    },
+  },
+  actions: {
+    changeUserLogStatus(context) {
+      context.commit('changeStatus');
+    },
+  },
+  getters: {
+    isLoggedIn(state) {
+      return state.userLogged;
+    },
+  },
 });
